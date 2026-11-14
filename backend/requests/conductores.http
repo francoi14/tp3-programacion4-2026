@@ -1,0 +1,44 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJmcmFuY29AdXRuLmVkdS5hciIsImlhdCI6MTc5NDY3MTA4MCwiZXhwIjoxNzk0Njg1NDgwfQ.iWEu2KxScDgzm146Rw74nh1NQV_0Byfz8wKLcWKrOw0
+
+### 1. prueba sin token (tiene que rebotar con 401)
+GET http://localhost:3000/api/conductores
+
+### 2. crear un conductor nuevo
+POST http://localhost:3000/api/conductores
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "nombre": "Carlos",
+    "apellido": "Gomez",
+    "numero_documento": "34567890",
+    "numero_licencia": "LIC-998877",
+    "fecha_alta_licencia": "2022-05-10",
+    "fecha_vencimiento_licencia": "2027-05-10"
+}
+
+### 3. listar todos los conductores
+GET http://localhost:3000/api/conductores
+Authorization: Bearer {{token}}
+
+### 4. traer conductor por id
+GET http://localhost:3000/api/conductores/1
+Authorization: Bearer {{token}}
+
+### 5. actualizar conductor
+PUT http://localhost:3000/api/conductores/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "nombre": "Carlos Alberto",
+    "apellido": "Gomez",
+    "numero_documento": "34567890",
+    "numero_licencia": "LIC-998877",
+    "fecha_alta_licencia": "2022-05-10",
+    "fecha_vencimiento_licencia": "2028-05-10"
+}
+
+### 6. eliminar conductor
+DELETE http://localhost:3000/api/conductores/1
+Authorization: Bearer {{token}}

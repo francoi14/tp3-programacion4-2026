@@ -1,4 +1,4 @@
-# registrar un usuario nuevo
+### registrar un usuario nuevo
 POST http://localhost:3000/api/auth/registro
 Content-Type: application/json
 
@@ -8,7 +8,8 @@ Content-Type: application/json
     "contrasenia": "123456"
 }
 
-# loguear con ese usuario para obtener el token
+### loguear con ese usuario para obtener el token
+
 POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 

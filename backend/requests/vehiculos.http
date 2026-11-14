@@ -1,0 +1,42 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJmcmFuY29AdXRuLmVkdS5hciIsImlhdCI6MTc5NDY3MTA4MCwiZXhwIjoxNzk0Njg1NDgwfQ.iWEu2KxScDgzm146Rw74nh1NQV_0Byfz8wKLcWKrOw0
+
+### 1. prueba sin token (tiene que rebotar con 401 por passport)
+GET http://localhost:3000/api/vehiculos
+
+### 2. crear un vehiculo nuevo
+POST http://localhost:3000/api/vehiculos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "marca": "Mercedes-Benz",
+    "modelo": "Actros 2651",
+    "patente": "AF123CD",
+    "anio": 2023,
+    "capacidad_carga": 28000.50
+}
+
+### 3. listar todos los vehiculos
+GET http://localhost:3000/api/vehiculos
+Authorization: Bearer {{token}}
+
+### 4. traer un vehiculo por id
+GET http://localhost:3000/api/vehiculos/1
+Authorization: Bearer {{token}}
+
+### 5. actualizar un vehiculo
+PUT http://localhost:3000/api/vehiculos/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "marca": "Mercedes-Benz",
+    "modelo": "Actros 2651 Full",
+    "patente": "AF123CD",
+    "anio": 2024,
+    "capacidad_carga": 30000.00
+}
+
+### 6. eliminar un vehiculo
+DELETE http://localhost:3000/api/vehiculos/1
+Authorization: Bearer {{token}}

@@ -1,0 +1,48 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJmcmFuY29AdXRuLmVkdS5hciIsImlhdCI6MTc5NDY3MTA4MCwiZXhwIjoxNzk0Njg1NDgwfQ.iWEu2KxScDgzm146Rw74nh1NQV_0Byfz8wKLcWKrOw0
+
+### 1. prueba sin token (tiene que rebotar con 401)
+GET http://localhost:3000/api/viajes
+
+### 2. crear un viaje nuevo
+POST http://localhost:3000/api/viajes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "vehiculo_id": 1,
+    "conductor_id": 1,
+    "fecha_salida": "2026-11-14 08:00:00",
+    "fecha_llegada": "2026-11-14 14:30:00",
+    "origen": "La Rioja Capital",
+    "destino": "Cordoba Capital",
+    "kilometros": 430.50,
+    "observaciones": "Carga completa sin novedades"
+}
+
+### 3. listar todos los viajes (trae patente y chofer por JOIN)
+GET http://localhost:3000/api/viajes
+Authorization: Bearer {{token}}
+
+### 4. traer viaje por id
+GET http://localhost:3000/api/viajes/1
+Authorization: Bearer {{token}}
+
+### 5. actualizar viaje
+PUT http://localhost:3000/api/viajes/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "vehiculo_id": 1,
+    "conductor_id": 1,
+    "fecha_salida": "2026-11-14 08:00:00",
+    "fecha_llegada": "2026-11-14 15:00:00",
+    "origen": "La Rioja Capital",
+    "destino": "Cordoba Capital",
+    "kilometros": 445.00,
+    "observaciones": "Desvio por obra en ruta nacional 38"
+}
+
+### 6. eliminar viaje
+DELETE http://localhost:3000/api/viajes/1
+Authorization: Bearer {{token}}

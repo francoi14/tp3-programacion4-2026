@@ -19,10 +19,12 @@ require('./config/passport')(passport);
 const authRoutes = require('./routes/auth.routes');
 const vehiculoRoutes = require('./routes/vehiculo.routes');
 const conductorRoutes = require('./routes/conductor.routes');
+const viajeRoutes = require('./routes/viaje.routes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/vehiculos', vehiculoRoutes);
 app.use('/api/conductores', conductorRoutes);
+app.use('/api/viajes', viajeRoutes);
 
 // ruta de prueba
 app.get('/api/ping', (req, res) => {
